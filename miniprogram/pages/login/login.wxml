@@ -1,0 +1,59 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+  <!-- Logo 区域 -->
+  <view class="logo-section">
+    <view class="logo">📅</view>
+    <text class="app-name">排课系统</text>
+    <text class="app-desc">高效管理课程安排</text>
+  </view>
+
+  <!-- 登录表单 -->
+  <view class="form-section">
+    <!-- ID输入 -->
+    <view class="input-group">
+      <view class="input-icon">📱</view>
+      <input 
+        class="input" 
+        type="text"
+        placeholder="请输入ID" 
+        value="{{phone}}"
+        bindinput="onPhoneInput"
+      />
+    </view>
+
+    <!-- 密码输入 -->
+    <view class="input-group">
+      <view class="input-icon">🔒</view>
+      <input 
+        class="input" 
+        type="{{showPassword ? 'text' : 'password'}}" 
+        placeholder="请输入密码" 
+        value="{{password}}"
+        bindinput="onPasswordInput"
+      />
+      <view class="input-suffix" bindtap="togglePassword">
+        <text>{{showPassword ? '🙈' : '👁️'}}</text>
+      </view>
+    </view>
+
+    <!-- 登录按钮 -->
+    <button 
+      class="btn-login {{isSubmitting ? 'disabled' : ''}}" 
+      bindtap="handleLogin"
+      disabled="{{isSubmitting}}"
+    >
+      {{isSubmitting ? '登录中...' : '登 录'}}
+    </button>
+
+    <!-- 提示文字 -->
+    <view class="tips">
+      <text class="tips-text">请输入已绑定的ID和密码</text>
+    </view>
+
+    <!-- 注册链接 -->
+    <view class="register-link" bindtap="goToRegister">
+      <text>没有ID？</text>
+      <text class="link">立即注册</text>
+    </view>
+  </view>
+</view>

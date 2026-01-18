@@ -1,0 +1,16 @@
+<!--components/schedule-card/schedule-card.wxml-->
+<view 
+  class="schedule-card color-{{course.colorIndex || 0}}"
+  style="top: {{course._top}}rpx; height: {{course._height}}rpx;"
+  bindtap="handleTap"
+  bindlongpress="handleLongpress"
+>
+  <view class="card-content">
+    <text class="course-name">{{course.courseName}}</text>
+    <!-- 学生名称 - 只显示第一个，不带图标 -->
+    <text class="student-name" wx:if="{{course.students && course.students.length > 0}}">{{course.students[0].name}}</text>
+    <text class="course-teacher" wx:if="{{course.teacherName}}">{{course.teacherName}}</text>
+    <text class="course-location" wx:if="{{course.location}}">📍{{course.location}}</text>
+  </view>
+</view>
+

@@ -1,0 +1,79 @@
+<!--components/schedule-grid/schedule-grid.wxml-->
+<view class="schedule-grid">
+  <!-- 周切换器 -->
+  <view class="week-switcher">
+    <view class="week-btn" bindtap="prevWeek">
+      <text class="arrow">‹</text>
+    </view>
+    <view class="week-title" bindtap="goToday">
+      <text>{{weekTitle}}</text>
+      <text class="today-btn" wx:if="{{!isCurrentWeek}}">今天</text>
+    </view>
+    <view class="week-btn" bindtap="nextWeek">
+      <text class="arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 表头：星期 -->
+  <view class="grid-header">
+    <view class="time-column-header"></view>
+    <view 
+      class="day-header {{day.isToday ? 'today' : ''}}" 
+      wx:for="{{weekDays}}" 
+      wx:key="date"
+      wx:for-item="day"
+    >
+      <text class="day-name">{{day.name}}</text>
+      <text class="day-date">{{day.dateStr}}</text>
+    </view>
+  </view>
+
+  <!-- 课程表主体（可滚动） -->
+  <scroll-view class="grid-body" scroll-y enhanced show-scrollbar="{{false}}">
+    <view class="grid-content">
+      <!-- 时间列 -->
+      <view class="time-column">
+        <view class="time-slot" wx:for="{{hourSlots}}" wx:key="hour">
+          <text class="time-text">{{item.label}}</text>
+        </view>
+      </view>
+
+      <!-- 7天的列 -->
+      <view class="days-container">
+        <view 
+          class="day-column {{day.isToday ? 'today-column' : ''}}" 
+          wx:for="{{weekDays}}" 
+          wx:key="date"
+          wx:for-item="day"
+          wx:for-index="dayIndex"
+        >
+          <!-- 时间格子背景 -->
+          <view 
+            class="time-cell {{slot.minute === 30 ? 'half-hour' : ''}}" 
+            wx:for="{{timeSlots}}" 
+            wx:key="label" 
+            wx:for-item="slot"
+          >
+            <view 
+              class="cell-touch" 
+              data-day="{{dayIndex}}" 
+              data-hour="{{slot.hour}}"
+              data-minute="{{slot.minute}}"
+              bindtap="onCellTap"
+            ></view>
+          </view>
+
+          <!-- 课程卡片 -->
+          <block wx:for="{{day.courses}}" wx:key="_id" wx:for-item="course">
+            <schedule-card 
+              course="{{course}}"
+              bind:cardtap="onCourseTap"
+              bind:cardlongpress="onCourseLongpress"
+            />
+          </block>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+

@@ -1,0 +1,118 @@
+/* pages/schedule/index/index.wxss */
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f5f6fa;
+}
+
+/* 筛选栏 */
+.filter-bar {
+  background: #fff;
+  padding: 16rpx 30rpx;
+  border-bottom: 1rpx solid #eee;
+  flex-shrink: 0;
+  display: flex;
+  gap: 20rpx;
+}
+
+.filter-item {
+  flex: 1;
+}
+
+.filter-picker {
+  display: flex;
+  align-items: center;
+  padding: 12rpx 20rpx;
+  background: #f5f6fa;
+  border-radius: 8rpx;
+}
+
+.filter-label {
+  font-size: 26rpx;
+  color: #666;
+}
+
+.filter-value {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+  margin-left: 8rpx;
+}
+
+.filter-arrow {
+  font-size: 28rpx;
+  color: #ccc;
+}
+
+/* 添加按钮 */
+.add-btn {
+  position: fixed;
+  right: 40rpx;
+  bottom: 60rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 24rpx rgba(102, 126, 234, 0.4);
+  z-index: 100;
+}
+
+.add-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 4rpx 16rpx rgba(102, 126, 234, 0.3);
+}
+
+.add-btn text {
+  font-size: 56rpx;
+  color: #fff;
+  font-weight: 300;
+  line-height: 1;
+}
+
+/* 加载遮罩 */
+.loading-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading-spinner {
+  width: 60rpx;
+  height: 60rpx;
+  border: 4rpx solid #f0f0f0;
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-content text {
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+

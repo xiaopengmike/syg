@@ -1,0 +1,108 @@
+<!--pages/users/detail/detail.wxml-->
+<view class="container">
+  <!-- 加载中 -->
+  <view class="loading-state" wx:if="{{isLoading}}">
+    <text>加载中...</text>
+  </view>
+
+  <block wx:else>
+    <!-- 用户信息卡片 -->
+    <view class="user-card">
+      <view class="user-avatar">
+        <text>{{user.name[0] || '?'}}</text>
+      </view>
+      <view class="user-name">{{user.name}}</view>
+      <view class="user-role-tag {{user.role}}">
+        {{user.role === 'teacher' ? '老师' : '学生'}}
+      </view>
+    </view>
+
+    <!-- 详情信息 -->
+    <view class="info-card">
+      <view class="info-item">
+        <text class="info-label">角色</text>
+        <text class="info-value">{{user.role === 'teacher' ? '老师' : '学生'}}</text>
+      </view>
+      <view class="info-item" wx:if="{{user.subject}}">
+        <text class="info-label">科目</text>
+        <text class="info-value">{{user.subject}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">状态</text>
+        <view class="status-tag {{user.bindStatus}}">
+          <text wx:if="{{user.bindStatus === 'unbound'}}">📝 未邀请</text>
+          <text wx:elif="{{user.bindStatus === 'pending'}}">⏳ 待绑定</text>
+          <text wx:elif="{{user.bindStatus === 'bound'}}">✅ 已绑定</text>
+          <text wx:elif="{{user.bindStatus === 'registered'}}">🔗 已注册</text>
+        </view>
+      </view>
+      <view class="info-item" wx:if="{{user.phone}}">
+        <text class="info-label">ID</text>
+        <text class="info-value">{{user.phone}}</text>
+      </view>
+      <view class="info-item" wx:if="{{user.remark}}">
+        <text class="info-label">备注</text>
+        <text class="info-value">{{user.remark}}</text>
+      </view>
+      <view class="info-item" wx:if="{{user.creatorName}}">
+        <text class="info-label">创建人</text>
+        <text class="info-value">{{user.creatorName}}</text>
+      </view>
+      <view class="info-item">
+        <text class="info-label">创建时间</text>
+        <text class="info-value">{{user.createdAtStr}}</text>
+      </view>
+    </view>
+
+    <!-- 操作按钮 -->
+    <view class="action-card">
+      <!-- 邀请绑定 - 使用 open-type="share" 直接触发微信分享 -->
+      <button 
+        class="action-btn invite" 
+        wx:if="{{user.bindStatus === 'unbound' || user.bindStatus === 'pending'}}"
+        open-type="share"
+      >
+        <text class="action-icon">📤</text>
+        <text>{{user.bindStatus === 'pending' ? '重新邀请' : '邀请绑定'}}</text>
+      </button>
+
+      <!-- 编辑信息 -->
+      <button class="action-btn edit" bindtap="handleEdit">
+        <text class="action-icon">✏️</text>
+        <text>编辑信息</text>
+      </button>
+
+      <!-- 删除 -->
+      <button 
+        class="action-btn delete" 
+        wx:if="{{user.bindStatus === 'unbound'}}"
+        bindtap="handleDelete"
+      >
+        <text class="action-icon">🗑️</text>
+        <text>删除</text>
+      </button>
+    </view>
+
+    <!-- 邀请信息（如果有） -->
+    <view class="invite-card" wx:if="{{inviteInfo}}">
+      <view class="invite-header">
+        <text class="invite-title">📨 邀请信息</text>
+      </view>
+      <view class="invite-content">
+        <view class="invite-row">
+          <text class="invite-label">邀请码</text>
+          <text class="invite-code">{{inviteInfo.code}}</text>
+        </view>
+        <view class="invite-row">
+          <text class="invite-label">过期时间</text>
+          <text class="invite-value">{{inviteInfo.expireTimeStr}}</text>
+        </view>
+        <view class="invite-row">
+          <text class="invite-label">状态</text>
+          <text class="invite-value">{{inviteInfo.status === 'pending' ? '等待接受' : '已接受'}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+

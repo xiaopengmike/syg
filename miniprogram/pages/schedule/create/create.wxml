@@ -1,0 +1,172 @@
+<!--pages/schedule/create/create.wxml-->
+<view class="container">
+  <view class="form-card">
+    <!-- 课程名称 -->
+    <view class="form-item">
+      <view class="form-label required">课程名称</view>
+      <input 
+        class="form-input" 
+        placeholder="请输入课程名称" 
+        value="{{formData.courseName}}"
+        bindinput="onInput"
+        data-field="courseName"
+      />
+    </view>
+
+    <!-- 授课教师 - 校长可选择，老师自动为自己 -->
+    <view class="form-item" wx:if="{{isPrincipal}}">
+      <view class="form-label required">授课教师</view>
+      <picker 
+        mode="selector" 
+        range="{{teacherList}}" 
+        range-key="name"
+        value="{{teacherIndex}}"
+        bindchange="onTeacherChange"
+      >
+        <view class="form-picker {{formData.teacherId ? '' : 'placeholder'}}">
+          {{formData.teacherName || '请选择授课教师'}}
+          <text class="picker-arrow">›</text>
+        </view>
+      </picker>
+    </view>
+
+    <!-- 老师显示自己 -->
+    <view class="form-item" wx:elif="{{isTeacher}}">
+      <view class="form-label">授课教师</view>
+      <view class="form-static">{{currentUser.name}}（本人）</view>
+    </view>
+
+    <!-- 日期选择 -->
+    <view class="form-item">
+      <view class="form-label required">上课日期</view>
+      <picker 
+        mode="date" 
+        value="{{formData.date}}"
+        bindchange="onDateChange"
+      >
+        <view class="form-picker {{formData.date ? '' : 'placeholder'}}">
+          {{formData.date || '请选择日期'}}
+          <text class="picker-arrow">›</text>
+        </view>
+      </picker>
+    </view>
+
+    <!-- 时间/时长选择 -->
+    <view class="form-row">
+      <view class="form-item half">
+        <view class="form-label required">开始时间</view>
+        <picker 
+          mode="selector" 
+          range="{{startTimeOptions}}" 
+          value="{{startTimeIndex}}"
+          bindchange="onStartTimeChange"
+        >
+          <view class="form-picker {{formData.startTime ? '' : 'placeholder'}}">
+            {{formData.startTime || '开始'}}
+            <text class="picker-arrow">›</text>
+          </view>
+        </picker>
+      </view>
+
+      <view class="form-item half">
+        <view class="form-label required">时长</view>
+        <picker 
+          mode="selector" 
+          range="{{durationOptions}}" 
+          value="{{durationIndex}}"
+          bindchange="onDurationChange"
+        >
+          <view class="form-picker">
+            {{durationOptions[durationIndex]}}
+            <text class="picker-arrow">›</text>
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <!-- 上课地点 -->
+    <view class="form-item">
+      <view class="form-label">上课地点</view>
+      <input 
+        class="form-input" 
+        placeholder="请输入上课地点（选填）" 
+        value="{{formData.location}}"
+        bindinput="onInput"
+        data-field="location"
+      />
+    </view>
+
+    <!-- 学生选择 -->
+    <view class="form-item">
+      <view class="form-label required">参与学生</view>
+      <view class="student-selector" bindtap="openStudentPicker">
+        <view class="selected-students" wx:if="{{selectedStudents.length > 0}}">
+          <view class="student-tag" wx:for="{{selectedStudents}}" wx:key="_id">
+            {{item.name}}
+          </view>
+        </view>
+        <view class="placeholder" wx:else>点击选择学生（选填）</view>
+        <text class="picker-arrow">›</text>
+      </view>
+    </view>
+
+    <!-- 备注 -->
+    <view class="form-item">
+      <view class="form-label">备注</view>
+      <textarea 
+        class="form-textarea" 
+        placeholder="请输入备注信息（选填）" 
+        value="{{formData.remark}}"
+        bindinput="onInput"
+        data-field="remark"
+        maxlength="200"
+      />
+    </view>
+  </view>
+
+  <!-- 提交按钮 -->
+  <view class="btn-area">
+    <button 
+      class="btn-submit {{isSubmitting ? 'disabled' : ''}}" 
+      bindtap="handleSubmit"
+      disabled="{{isSubmitting}}"
+    >
+      {{isSubmitting ? '保存中...' : (isEdit ? '保存修改' : '创建排课')}}
+    </button>
+  </view>
+</view>
+
+<!-- 学生选择弹窗 -->
+<view class="modal-mask" wx:if="{{showStudentPicker}}" bindtap="closeStudentPicker"></view>
+<view class="modal-content {{showStudentPicker ? 'show' : ''}}">
+  <view class="modal-header">
+    <text class="modal-title">选择学生</text>
+    <view class="modal-close" bindtap="closeStudentPicker">✕</view>
+  </view>
+  <view class="modal-body">
+    <view class="student-list" wx:if="{{studentList.length > 0}}">
+      <view 
+        class="student-item {{item.selected ? 'selected' : ''}}" 
+        wx:for="{{studentList}}" 
+        wx:key="_id"
+        bindtap="toggleStudent"
+        data-index="{{index}}"
+      >
+        <view class="student-checkbox">
+          <text wx:if="{{item.selected}}">✓</text>
+        </view>
+        <view class="student-info">
+          <text class="student-name">{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="empty-list" wx:else>
+      <text>暂无学生</text>
+    </view>
+  </view>
+  <view class="modal-footer">
+    <button class="btn-confirm" bindtap="confirmStudents">确定 ({{selectedCount}}人)</button>
+  </view>
+</view>
+
+

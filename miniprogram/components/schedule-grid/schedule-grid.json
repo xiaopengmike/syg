@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "schedule-card": "../schedule-card/schedule-card"
+  }
+}
+
+

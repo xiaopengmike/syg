@@ -1,0 +1,68 @@
+<!--pages/schedule/index/index.wxml-->
+<view class="container">
+  <!-- 筛选栏 - 仅校长可见 -->
+  <view class="filter-bar" wx:if="{{isPrincipal}}">
+    <!-- 教师筛选 -->
+    <view class="filter-item">
+      <picker 
+        mode="selector" 
+        range="{{teacherOptions}}" 
+        range-key="name"
+        value="{{teacherIndex}}"
+        bindchange="onTeacherFilter"
+      >
+        <view class="filter-picker">
+          <text class="filter-label">教师：</text>
+          <text class="filter-value">{{selectedTeacherName || '全部'}}</text>
+          <text class="filter-arrow">›</text>
+        </view>
+      </picker>
+    </view>
+
+    <!-- 学生筛选 -->
+    <view class="filter-item">
+      <picker 
+        mode="selector" 
+        range="{{studentOptions}}" 
+        range-key="name"
+        value="{{studentIndex}}"
+        bindchange="onStudentFilter"
+      >
+        <view class="filter-picker">
+          <text class="filter-label">学生：</text>
+          <text class="filter-value">{{selectedStudentName || '全部'}}</text>
+          <text class="filter-arrow">›</text>
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <!-- 课程表网格 -->
+  <schedule-grid 
+    courses="{{courses}}"
+    start-hour="{{8}}"
+    end-hour="{{22}}"
+    bind:weekchange="onWeekChange"
+    bind:celltap="onCellTap"
+    bind:coursetap="onCourseTap"
+    bind:courselongpress="onCourseLongpress"
+  />
+
+  <!-- 添加按钮 - 校长和老师可见 -->
+  <view 
+    class="add-btn" 
+    wx:if="{{canCreate}}"
+    bindtap="goToCreate"
+  >
+    <text>+</text>
+  </view>
+
+  <!-- 加载提示 -->
+  <view class="loading-mask" wx:if="{{isLoading}}">
+    <view class="loading-content">
+      <view class="loading-spinner"></view>
+      <text>加载中...</text>
+    </view>
+  </view>
+</view>
+

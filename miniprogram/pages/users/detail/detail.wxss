@@ -1,0 +1,217 @@
+/* pages/users/detail/detail.wxss */
+.container {
+  min-height: 100vh;
+  background-color: #f5f6f8;
+  padding: 20rpx;
+}
+
+/* 加载状态 */
+.loading-state {
+  text-align: center;
+  padding: 120rpx 0;
+  color: #999;
+  font-size: 28rpx;
+}
+
+/* 用户卡片 */
+.user-card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 48rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.user-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20rpx;
+}
+
+.user-avatar text {
+  color: #fff;
+  font-size: 48rpx;
+  font-weight: bold;
+}
+
+.user-name {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.user-role-tag {
+  font-size: 26rpx;
+  padding: 8rpx 24rpx;
+  border-radius: 20rpx;
+}
+
+.user-role-tag.teacher {
+  background-color: #E6F7ED;
+  color: #52C41A;
+}
+
+.user-role-tag.student {
+  background-color: #E8F4FD;
+  color: #4A90D9;
+}
+
+/* 信息卡片 */
+.info-card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.info-value {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.status-tag {
+  font-size: 24rpx;
+  padding: 6rpx 16rpx;
+  border-radius: 20rpx;
+}
+
+.status-tag.unbound {
+  background-color: #f0f0f0;
+  color: #999;
+}
+
+.status-tag.pending {
+  background-color: #FFF7E6;
+  color: #FA8C16;
+}
+
+.status-tag.bound {
+  background-color: #E6F7ED;
+  color: #52C41A;
+}
+
+.status-tag.registered {
+  background-color: #E8F4FD;
+  color: #4A90D9;
+}
+
+/* 操作按钮 */
+.action-card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12rpx;
+  height: 88rpx;
+  border-radius: 12rpx;
+  font-size: 30rpx;
+  margin-bottom: 16rpx;
+  border: none;
+}
+
+.action-btn:last-child {
+  margin-bottom: 0;
+}
+
+.action-btn.invite {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+}
+
+.action-btn.edit {
+  background-color: #f5f6f8;
+  color: #333;
+}
+
+.action-btn.delete {
+  background-color: #fff;
+  color: #ff4d4f;
+  border: 2rpx solid #ff4d4f;
+}
+
+.action-icon {
+  font-size: 32rpx;
+}
+
+/* 邀请信息卡片 */
+.invite-card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+}
+
+.invite-header {
+  background-color: #E8F4FD;
+  padding: 20rpx 24rpx;
+}
+
+.invite-title {
+  font-size: 28rpx;
+  color: #4A90D9;
+  font-weight: 500;
+}
+
+.invite-content {
+  padding: 24rpx;
+}
+
+.invite-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12rpx 0;
+}
+
+.invite-label {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.invite-code {
+  font-size: 32rpx;
+  color: #4A90D9;
+  font-weight: 600;
+  letter-spacing: 4rpx;
+}
+
+.invite-value {
+  font-size: 26rpx;
+  color: #333;
+}
+
+
+
+
+

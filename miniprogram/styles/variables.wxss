@@ -1,0 +1,77 @@
+/**
+ * 全局样式变量
+ * 微信小程序排课系统
+ */
+
+page {
+  /* 主题色 */
+  --primary-color: #4A90D9;
+  --primary-light: #6BA3E0;
+  --primary-dark: #3A7BC8;
+  
+  /* 功能色 */
+  --success-color: #52C41A;
+  --warning-color: #FAAD14;
+  --error-color: #FF4D4F;
+  --info-color: #1890FF;
+  
+  /* 文字颜色 */
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-placeholder: #999999;
+  --text-disabled: #CCCCCC;
+  --text-white: #FFFFFF;
+  
+  /* 背景颜色 */
+  --bg-color: #F5F6F8;
+  --bg-white: #FFFFFF;
+  --bg-gray: #F0F0F0;
+  
+  /* 边框颜色 */
+  --border-color: #E8E8E8;
+  --border-light: #F0F0F0;
+  
+  /* 间距 */
+  --spacing-xs: 8rpx;
+  --spacing-sm: 16rpx;
+  --spacing-md: 24rpx;
+  --spacing-lg: 32rpx;
+  --spacing-xl: 48rpx;
+  
+  /* 圆角 */
+  --radius-sm: 8rpx;
+  --radius-md: 12rpx;
+  --radius-lg: 16rpx;
+  --radius-xl: 24rpx;
+  --radius-round: 9999rpx;
+  
+  /* 字体大小 */
+  --font-xs: 22rpx;
+  --font-sm: 24rpx;
+  --font-md: 28rpx;
+  --font-lg: 32rpx;
+  --font-xl: 36rpx;
+  --font-xxl: 44rpx;
+  
+  /* 阴影 */
+  --shadow-sm: 0 2rpx 8rpx rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8rpx 24rpx rgba(0, 0, 0, 0.12);
+  
+  /* 角色颜色 */
+  --role-principal: #9B59B6;
+  --role-teacher: #3498DB;
+  --role-student: #2ECC71;
+  
+  /* 课程卡片颜色 */
+  --schedule-blue: #4A90D9;
+  --schedule-green: #52C41A;
+  --schedule-orange: #FA8C16;
+  --schedule-purple: #722ED1;
+  --schedule-cyan: #13C2C2;
+}
+
+
+
+
+

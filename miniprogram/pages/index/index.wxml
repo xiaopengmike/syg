@@ -1,0 +1,60 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <!-- 头部欢迎区域 -->
+  <view class="header">
+    <view class="greeting">{{greeting}}</view>
+    <view class="user-info" wx:if="{{isLoggedIn && userInfo}}">
+      <view class="user-detail">
+        <text class="user-name">{{userInfo.name}}</text>
+        <text class="user-role {{userInfo.role}}">{{userInfo.role === 'principal' ? '校长' : (userInfo.role === 'teacher' ? '老师' : '学生')}}</text>
+      </view>
+      <view class="logout-btn" bindtap="handleLogout">退出</view>
+    </view>
+    <view class="login-tip" wx:else>
+      <text>欢迎使用排课系统</text>
+      <button class="login-btn" bindtap="goToLogin">登录 / 注册</button>
+    </view>
+  </view>
+
+  <!-- 功能入口 -->
+  <view class="menu-section">
+    <view class="section-title">功能菜单</view>
+    
+    <view class="menu-grid">
+      <!-- 课程表 -->
+      <view class="menu-item" bindtap="goToSchedule">
+        <view class="menu-icon schedule-icon">
+          <text class="icon">📅</text>
+        </view>
+        <text class="menu-text">课程表</text>
+      </view>
+
+
+
+      <!-- 我的老师 - 仅校长可见 -->
+      <view class="menu-item" wx:if="{{userInfo.role === 'principal'}}" bindtap="goToTeachers">
+        <view class="menu-icon users-icon">
+          <text class="icon">👨‍🏫</text>
+        </view>
+        <text class="menu-text">我的老师</text>
+      </view>
+
+      <!-- 我的学生 - 校长和老师可见 -->
+      <view class="menu-item" wx:if="{{userInfo.role === 'principal' || userInfo.role === 'teacher'}}" bindtap="goToStudents">
+        <view class="menu-icon users-icon">
+          <text class="icon">👨‍🎓</text>
+        </view>
+        <text class="menu-text">我的学生</text>
+      </view>
+
+
+    </view>
+  </view>
+
+  <!-- 未登录提示 -->
+  <view class="empty-state" wx:if="{{!isLoggedIn}}">
+    <view class="empty-icon">🔐</view>
+    <text class="empty-text">请先登录以使用完整功能</text>
+  </view>
+</view>
+

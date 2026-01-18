@@ -1,0 +1,128 @@
+<!--pages/register/register.wxml-->
+<view class="container">
+  <!-- Logo 区域 -->
+  <view class="logo-section">
+    <view class="logo">📅</view>
+    <text class="app-name">加入排课系统</text>
+  </view>
+
+  <!-- 注册表单 -->
+  <view class="form-section">
+    <!-- 角色选择 -->
+    <view class="role-section">
+      <text class="section-title">选择您的角色</text>
+      <view class="role-cards">
+        <view 
+          class="role-card {{role === 'teacher' ? 'active' : ''}}" 
+          bindtap="selectRole" 
+          data-role="teacher"
+        >
+          <text class="role-icon">👨‍🏫</text>
+          <text class="role-name">我是老师</text>
+          <text class="role-desc">创建课程、管理学生</text>
+        </view>
+        <view 
+          class="role-card {{role === 'student' ? 'active' : ''}}" 
+          bindtap="selectRole" 
+          data-role="student"
+        >
+          <text class="role-icon">👨‍🎓</text>
+          <text class="role-name">我是学生</text>
+          <text class="role-desc">查看课表、选课</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- ID输入 -->
+    <view class="input-group">
+      <view class="input-icon">📱</view>
+      <input 
+        class="input" 
+        type="number" 
+        maxlength="11"
+        placeholder="请输入ID" 
+        value="{{phone}}"
+        bindinput="onPhoneInput"
+      />
+    </view>
+
+    <!-- 姓名输入 -->
+    <view class="input-group">
+      <view class="input-icon">👤</view>
+      <input 
+        class="input" 
+        type="text" 
+        placeholder="请输入姓名" 
+        value="{{name}}"
+        bindinput="onNameInput"
+      />
+    </view>
+
+    <!-- 科目输入（老师） -->
+    <view class="input-group" wx:if="{{role === 'teacher'}}">
+      <view class="input-icon">📚</view>
+      <input 
+        class="input" 
+        type="text" 
+        placeholder="请输入教授科目" 
+        value="{{subject}}"
+        bindinput="onSubjectInput"
+      />
+    </view>
+
+    <!-- 班级输入（学生） -->
+    <view class="input-group" wx:if="{{role === 'student'}}">
+      <view class="input-icon">🏫</view>
+      <input 
+        class="input" 
+        type="text" 
+        placeholder="请输入班级（选填）" 
+        value="{{className}}"
+        bindinput="onClassNameInput"
+      />
+    </view>
+
+    <!-- 密码输入 -->
+    <view class="input-group">
+      <view class="input-icon">🔒</view>
+      <input 
+        class="input" 
+        type="{{showPassword ? 'text' : 'password'}}" 
+        placeholder="设置登录密码（至少6位）" 
+        value="{{password}}"
+        bindinput="onPasswordInput"
+      />
+      <view class="input-suffix" bindtap="togglePassword">
+        <text>{{showPassword ? '🙈' : '👁️'}}</text>
+      </view>
+    </view>
+
+    <!-- 确认密码 -->
+    <view class="input-group">
+      <view class="input-icon">🔒</view>
+      <input 
+        class="input" 
+        type="{{showPassword ? 'text' : 'password'}}" 
+        placeholder="确认登录密码" 
+        value="{{confirmPassword}}"
+        bindinput="onConfirmPasswordInput"
+      />
+    </view>
+
+    <!-- 注册按钮 -->
+    <button 
+      class="btn-register {{isSubmitting ? 'disabled' : ''}}" 
+      bindtap="handleRegister"
+      disabled="{{isSubmitting}}"
+    >
+      {{isSubmitting ? '注册中...' : '注 册'}}
+    </button>
+
+    <!-- 登录链接 -->
+    <view class="login-link" bindtap="goToLogin">
+      <text>已有ID？</text>
+      <text class="link">去登录</text>
+    </view>
+  </view>
+</view>
+

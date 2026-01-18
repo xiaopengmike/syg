@@ -1,0 +1,103 @@
+<!--pages/schedule/detail/detail.wxml-->
+<view class="container">
+  <!-- 加载中 -->
+  <view class="loading-state" wx:if="{{isLoading}}">
+    <text>加载中...</text>
+  </view>
+
+  <block wx:else>
+    <!-- 课程信息卡片 -->
+    <view class="info-card main-card">
+      <view class="course-header">
+        <view class="course-name">{{schedule.courseName}}</view>
+        <view class="course-time-badge">
+          <text class="time-icon">🕐</text>
+          <text>{{schedule.startTime}} - {{schedule.endTime}}</text>
+        </view>
+      </view>
+
+      <view class="course-date">
+        <text class="date-icon">📅</text>
+        <text>{{schedule.date}} {{schedule.dayOfWeekStr}}</text>
+      </view>
+
+      <view class="course-location" wx:if="{{schedule.location}}">
+        <text class="location-icon">📍</text>
+        <text>{{schedule.location}}</text>
+      </view>
+    </view>
+
+    <!-- 教师信息 -->
+    <view class="info-card">
+      <view class="card-title">
+        <text class="title-icon">👨‍🏫</text>
+        <text>授课教师</text>
+      </view>
+      <view class="teacher-info">
+        <view class="teacher-avatar">
+          <text>{{schedule.teacher.name[0] || '?'}}</text>
+        </view>
+        <view class="teacher-detail">
+          <text class="teacher-name">{{schedule.teacher.name}}</text>
+          <text class="teacher-subject" wx:if="{{schedule.teacher.subject}}">{{schedule.teacher.subject}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 学生列表 -->
+    <view class="info-card" wx:if="{{schedule.students.length > 0}}">
+      <view class="card-title">
+        <text class="title-icon">👨‍🎓</text>
+        <text>参与学生 ({{schedule.students.length}}人)</text>
+      </view>
+      <view class="student-list">
+        <view class="student-item" wx:for="{{schedule.students}}" wx:key="_id">
+          <view class="student-avatar">
+            <text>{{item.name[0] || '?'}}</text>
+          </view>
+          <view class="student-detail">
+            <text class="student-name">{{item.name}}</text>
+            <text class="student-class" wx:if="{{item.className}}">{{item.className}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 备注 -->
+    <view class="info-card" wx:if="{{schedule.remark}}">
+      <view class="card-title">
+        <text class="title-icon">📝</text>
+        <text>备注</text>
+      </view>
+      <view class="remark-content">
+        {{schedule.remark}}
+      </view>
+    </view>
+
+    <!-- 创建信息 -->
+    <view class="info-card meta-card">
+      <view class="meta-item">
+        <text class="meta-label">创建者</text>
+        <text class="meta-value">{{schedule.creator.name}}</text>
+      </view>
+      <view class="meta-item">
+        <text class="meta-label">创建时间</text>
+        <text class="meta-value">{{schedule.createdAtStr}}</text>
+      </view>
+    </view>
+
+    <!-- 操作按钮 -->
+    <view class="action-area" wx:if="{{canEdit}}">
+      <button class="btn-edit" bindtap="handleEdit">
+        <text class="btn-icon">✏️</text>
+        <text>编辑</text>
+      </button>
+      <button class="btn-delete" bindtap="handleDelete">
+        <text class="btn-icon">🗑️</text>
+        <text>删除</text>
+      </button>
+    </view>
+  </block>
+</view>
+
+

@@ -1,0 +1,64 @@
+<!--pages/users/list/list.wxml-->
+<view class="container">
+  <!-- 搜索框 -->
+  <view class="search-bar">
+    <view class="search-icon">🔍</view>
+    <input 
+      class="search-input" 
+      placeholder="搜索姓名..." 
+      value="{{keyword}}"
+      bindinput="onSearchInput"
+      bindconfirm="doSearch"
+    />
+    <view class="search-clear" wx:if="{{keyword}}" bindtap="clearSearch">✕</view>
+  </view>
+
+  <!-- 用户列表 -->
+  <view class="user-list" wx:if="{{list.length > 0}}">
+    <view 
+      class="user-item" 
+      wx:for="{{list}}" 
+      wx:key="_id"
+      bindtap="goToDetail"
+      data-id="{{item._id}}"
+    >
+      <view class="user-avatar">
+        <text>{{item.name[0] || '?'}}</text>
+      </view>
+      <view class="user-info">
+        <view class="user-name">{{item.name}}</view>
+        <view class="user-meta">
+          <text wx:if="{{item.subject}}">{{item.subject}}</text>
+        </view>
+      </view>
+      <view class="user-status {{item.bindStatus}}">
+        <text wx:if="{{item.bindStatus === 'unbound'}}">📝 未邀请</text>
+        <text wx:elif="{{item.bindStatus === 'pending'}}">⏳ 待绑定</text>
+        <text wx:elif="{{item.bindStatus === 'bound'}}">✅ 已绑定</text>
+        <text wx:elif="{{item.bindStatus === 'registered'}}">🔗 已注册</text>
+      </view>
+      <view class="user-arrow">›</view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:elif="{{!isLoading}}">
+    <view class="empty-icon">{{userType === 'teacher' ? '👨‍🏫' : '👨‍🎓'}}</view>
+    <text class="empty-text">暂无{{userType === 'teacher' ? '老师' : '学生'}}</text>
+    <text class="empty-tip">点击右下角添加</text>
+  </view>
+
+  <!-- 加载中 -->
+  <view class="loading-state" wx:if="{{isLoading}}">
+    <text>加载中...</text>
+  </view>
+
+  <!-- 添加按钮 -->
+  <view class="add-btn" bindtap="goToAdd">
+    <text>+</text>
+  </view>
+</view>
+
+
+
+

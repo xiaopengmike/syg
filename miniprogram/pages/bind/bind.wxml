@@ -1,0 +1,108 @@
+<!--pages/bind/bind.wxml-->
+<view class="container">
+  <!-- 加载中 -->
+  <view class="loading-state" wx:if="{{isLoading}}">
+    <view class="loading-icon">⏳</view>
+    <text class="loading-text">加载邀请信息...</text>
+  </view>
+
+  <!-- 邀请失效 -->
+  <view class="error-state" wx:elif="{{!isValid}}">
+    <view class="error-icon">😔</view>
+    <text class="error-title">邀请已失效</text>
+    <text class="error-message">{{errorMessage}}</text>
+    <button class="btn-home" bindtap="goHome">返回首页</button>
+  </view>
+
+  <!-- 有效邀请 -->
+  <view class="bind-form" wx:else>
+    <!-- 邀请信息卡片 -->
+    <view class="invite-card">
+      <view class="invite-header">
+        <view class="invite-icon">💌</view>
+        <text class="invite-title">邀请信息</text>
+      </view>
+      <view class="invite-content">
+        <view class="inviter-info">
+          <text class="inviter-label">👤 {{inviteInfo.inviterName}} 邀请您</text>
+          <text class="inviter-role">成为「{{inviteInfo.targetRole === 'teacher' ? '老师' : '学生'}}」</text>
+        </view>
+        <view class="divider"></view>
+        <view class="target-info">
+          <view class="info-row">
+            <text class="info-label">姓名</text>
+            <text class="info-value">{{inviteInfo.targetName}}</text>
+          </view>
+          <view class="info-row" wx:if="{{inviteInfo.subject}}">
+            <text class="info-label">科目</text>
+            <text class="info-value">{{inviteInfo.subject}}</text>
+          </view>
+          <view class="info-row" wx:if="{{inviteInfo.className}}">
+            <text class="info-label">班级</text>
+            <text class="info-value">{{inviteInfo.className}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 绑定表单 -->
+    <view class="form-card">
+      <view class="form-title">完成绑定</view>
+      
+      <!-- ID输入 -->
+      <view class="input-group">
+        <view class="input-icon">📱</view>
+        <input 
+          class="input" 
+          type="number" 
+          maxlength="11"
+          placeholder="请输入ID" 
+          value="{{phone}}"
+          bindinput="onPhoneInput"
+        />
+      </view>
+
+      <!-- 密码 -->
+      <view class="input-group">
+        <view class="input-icon">🔒</view>
+        <input 
+          class="input" 
+          type="{{showPassword ? 'text' : 'password'}}" 
+          placeholder="设置登录密码（至少6位）" 
+          value="{{password}}"
+          bindinput="onPasswordInput"
+        />
+        <view class="input-suffix" bindtap="togglePassword">
+          <text>{{showPassword ? '🙈' : '👁️'}}</text>
+        </view>
+      </view>
+
+      <!-- 确认密码 -->
+      <view class="input-group">
+        <view class="input-icon">🔒</view>
+        <input 
+          class="input" 
+          type="{{showPassword ? 'text' : 'password'}}" 
+          placeholder="确认登录密码" 
+          value="{{confirmPassword}}"
+          bindinput="onConfirmPasswordInput"
+        />
+      </view>
+
+      <!-- 绑定按钮 -->
+      <button 
+        class="btn-bind {{isSubmitting ? 'disabled' : ''}}" 
+        bindtap="handleBind"
+        disabled="{{isSubmitting}}"
+      >
+        {{isSubmitting ? '绑定中...' : '确认绑定'}}
+      </button>
+
+      <!-- 已有账号 -->
+      <view class="login-link" bindtap="goToLogin">
+        <text>已有ID？</text>
+        <text class="link">去登录</text>
+      </view>
+    </view>
+  </view>
+</view>
