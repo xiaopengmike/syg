@@ -1,0 +1,64 @@
+<!--pages/promo/index.wxml - 宣传首页-->
+<view class="container">
+  <!-- 头部区域 - 未登录：登录按钮 -->
+  <view class="header" wx:if="{{!isLoggedIn}}">
+    <view class="greeting">{{greeting}}</view>
+    <view class="login-tip">
+      <text>欢迎使用课程系统</text>
+      <button class="login-btn" bindtap="goToLogin">登录 / 注册</button>
+    </view>
+  </view>
+
+  <!-- 头部区域 - 已登录：Banner图片 -->
+  <view class="banner-wrapper" wx:else>
+    <image class="banner-image" src="/images/banner.jpg" mode="widthFix"></image>
+    <view class="banner-overlay">
+      <view class="banner-user">
+        <text class="user-name">{{userInfo.name}}</text>
+        <text class="user-role {{userInfo.role}}">{{userInfo.role === 'principal' ? '校长' : (userInfo.role === 'teacher' ? '老师' : '学生')}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能入口 -->
+  <view class="menu-section">
+    <view class="section-title">功能菜单</view>
+    
+    <view class="menu-grid">
+      <!-- 课程系统 - 进入系统首页 -->
+      <view class="menu-item" bindtap="goToSystem">
+        <view class="menu-icon system-icon">
+          <text class="icon">🏠</text>
+        </view>
+        <text class="menu-text">课程系统</text>
+      </view>
+
+      <!-- 校区参观 -->
+      <view class="menu-item" bindtap="goToCampusTour">
+        <view class="menu-icon tour-icon">
+          <text class="icon">🏫</text>
+        </view>
+        <text class="menu-text">校区参观</text>
+      </view>
+
+      <!-- 课程介绍 -->
+      <view class="menu-item" bindtap="goToCourseIntro">
+        <view class="menu-icon intro-icon">
+          <text class="icon">📖</text>
+        </view>
+        <text class="menu-text">课程介绍</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 未登录提示 -->
+  <view class="empty-state" wx:if="{{!isLoggedIn}}">
+    <view class="empty-icon">🔐</view>
+    <text class="empty-text">请先登录以使用完整功能</text>
+  </view>
+
+  <!-- Logo -->
+  <view class="logo-section">
+    <image class="logo-image" src="/images/logo.jpg" mode="widthFix"></image>
+  </view>
+</view>

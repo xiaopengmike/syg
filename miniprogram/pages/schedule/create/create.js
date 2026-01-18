@@ -415,6 +415,27 @@ Page({
   },
 
   /**
+   * 跳转到添加学生页面
+   */
+  goAddStudent() {
+    // 关闭弹窗，跳转到添加学生页面
+    this.setData({ showStudentPicker: false });
+    wx.navigateTo({
+      url: '/pages/users/add/add?role=student'
+    });
+  },
+
+  /**
+   * 页面显示时刷新学生列表（从添加学生页返回时）
+   */
+  onShow() {
+    // 如果已经初始化过，刷新学生列表
+    if (this.data.currentUser) {
+      this.loadStudents();
+    }
+  },
+
+  /**
    * 表单验证
    */
   validateForm() {

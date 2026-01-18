@@ -8,6 +8,8 @@
  * @param {String} event.subject - 科目（老师）
  * @param {String} event.className - 班级（学生）
  * @param {Object} cloud - 云开发实例
+ * 
+ * 注意：学生自注册需要校长审批，状态为 pending_approval
  */
 module.exports = async function register(event, cloud) {
   const { role, phone, password, name, subject, className } = event;
@@ -61,8 +63,13 @@ module.exports = async function register(event, cloud) {
       };
     }
 
+    // 学生注册需要审批，老师注册直接通过
+    const needsApproval = role === 'student';
+    const bindStatus = needsApproval ? 'pending_approval' : 'registered';
+
     // 生成简单的 token（实际项目应使用 JWT）
-    const token = `token_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    // 待审批的学生不生成 token
+    const token = needsApproval ? null : `token_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 
     // 创建用户记录
     const now = new Date();
@@ -73,8 +80,8 @@ module.exports = async function register(event, cloud) {
       role,
       subject: role === 'teacher' ? (subject || '') : '',
       className: role === 'student' ? (className || '') : '',
-      bindStatus: 'registered',  // 自主注册的用户
-      creatorId: null,           // 无创建者
+      bindStatus,              // 学生为 pending_approval，老师为 registered
+      creatorId: null,         // 无创建者
       token,
       createdAt: now,
       updatedAt: now
@@ -85,7 +92,8 @@ module.exports = async function register(event, cloud) {
     // 返回用户信息（不包含密码）
     return {
       success: true,
-      message: '注册成功',
+      message: needsApproval ? '注册成功，请等待校长审批' : '注册成功',
+      needsApproval,           // 标识是否需要审批
       data: {
         _id: result._id,       // 用户ID
         userId: result._id,    // 兼容旧代码
@@ -94,7 +102,7 @@ module.exports = async function register(event, cloud) {
         role,
         subject: userData.subject,
         className: userData.className,
-        bindStatus: 'registered',
+        bindStatus,
         token
       }
     };

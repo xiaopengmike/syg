@@ -3,7 +3,7 @@
   <!-- Logo 区域 -->
   <view class="logo-section">
     <view class="logo">📅</view>
-    <text class="app-name">排课系统</text>
+    <text class="app-name">课程系统</text>
     <text class="app-desc">高效管理课程安排</text>
   </view>
 
@@ -26,7 +26,8 @@
       <view class="input-icon">🔒</view>
       <input 
         class="input" 
-        type="{{showPassword ? 'text' : 'password'}}" 
+        type="text"
+        password="{{!showPassword}}"
         placeholder="请输入密码" 
         value="{{password}}"
         bindinput="onPasswordInput"

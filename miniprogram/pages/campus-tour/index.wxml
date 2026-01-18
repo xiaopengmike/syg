@@ -1,0 +1,62 @@
+<!--pages/campus-tour/index.wxml-->
+<view class="container">
+  <!-- 校区头部信息 -->
+  <view class="header-card">
+    <view class="campus-icon">🏫</view>
+    <view class="campus-name">{{campusInfo.name}}</view>
+    <view class="campus-desc">{{campusInfo.description}}</view>
+  </view>
+
+  <!-- 联系信息 -->
+  <view class="section contact-section">
+    <view class="section-title">联系我们</view>
+    <view class="contact-list">
+      <view class="contact-item" bindtap="openMap">
+        <view class="contact-icon">📍</view>
+        <view class="contact-info">
+          <text class="contact-label">校区地址</text>
+          <text class="contact-value">{{campusInfo.address}}</text>
+        </view>
+        <view class="contact-arrow">›</view>
+      </view>
+      <view class="contact-item" bindtap="makePhoneCall">
+        <view class="contact-icon">📞</view>
+        <view class="contact-info">
+          <text class="contact-label">咨询电话</text>
+          <text class="contact-value">{{campusInfo.phone}}</text>
+        </view>
+        <view class="contact-arrow">›</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 校区设施 -->
+  <view class="section facilities-section">
+    <view class="section-title">校区设施</view>
+    <view class="facilities-grid">
+      <view class="facility-item" wx:for="{{facilities}}" wx:key="name">
+        <view class="facility-icon">{{item.icon}}</view>
+        <view class="facility-name">{{item.name}}</view>
+        <view class="facility-desc">{{item.desc}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 校区图片展示 -->
+  <view class="section gallery-section" wx:if="{{gallery.length > 0}}">
+    <view class="section-title">校区环境</view>
+    <view class="gallery-grid">
+      <view class="gallery-item" wx:for="{{gallery}}" wx:key="url" 
+            bindtap="previewImage" data-url="{{item.url}}">
+        <image src="{{item.url}}" mode="aspectFill" class="gallery-image"></image>
+        <view class="gallery-label" wx:if="{{item.label}}">{{item.label}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态提示 -->
+  <view class="empty-tip" wx:if="{{gallery.length === 0}}">
+    <view class="empty-icon">🖼️</view>
+    <text class="empty-text">更多校区环境图片即将上线</text>
+  </view>
+</view>

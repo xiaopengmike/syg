@@ -1,4 +1,4 @@
-/* pages/index/index.wxss */
+/* pages/index/index.wxss - 登录后首页样式 */
 
 .container {
   min-height: 100vh;
@@ -6,9 +6,9 @@
   padding: var(--spacing-md);
 }
 
-/* 头部区域 */
+/* 头部区域 - 主题蓝色 */
 .header {
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  background-color: var(--primary-color);
   border-radius: var(--radius-lg);
   padding: var(--spacing-xl) var(--spacing-lg);
   margin-bottom: var(--spacing-lg);
@@ -37,14 +37,6 @@
   font-size: var(--font-lg);
 }
 
-.logout-btn {
-  font-size: var(--font-sm);
-  padding: 8rpx 24rpx;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: var(--radius-round);
-  color: #fff;
-}
-
 .user-role {
   font-size: var(--font-sm);
   padding: 4rpx 16rpx;
@@ -64,25 +56,12 @@
   background-color: var(--role-student);
 }
 
-.login-tip {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-}
-
-.login-tip text {
-  font-size: var(--font-md);
-  opacity: 0.9;
-}
-
-.login-btn {
-  background-color: var(--text-white);
-  color: var(--primary-color);
-  font-size: var(--font-md);
-  padding: var(--spacing-sm) var(--spacing-lg);
+.logout-btn {
+  font-size: var(--font-sm);
+  padding: 8rpx 24rpx;
+  background-color: rgba(255, 255, 255, 0.2);
   border-radius: var(--radius-round);
-  font-weight: 500;
-  width: fit-content;
+  color: #fff;
 }
 
 /* 菜单区域 */
@@ -131,43 +110,38 @@
   background-color: #E8F4FD;
 }
 
-.create-icon {
-  background-color: #E6F7ED;
-}
-
-.conflict-icon {
-  background-color: #FFF7E6;
-}
-
 .users-icon {
   background-color: #F3E8FF;
 }
 
-.profile-icon {
-  background-color: #FFF0F0;
+.approval-icon {
+  background-color: #E6F7ED;
+  position: relative;
+}
+
+.public-icon {
+  background-color: #E6FFF0;
+}
+
+/* 徽章样式 */
+.badge {
+  position: absolute;
+  top: -8rpx;
+  right: -8rpx;
+  min-width: 32rpx;
+  height: 32rpx;
+  padding: 0 8rpx;
+  background-color: #FF4D4F;
+  color: #fff;
+  font-size: 20rpx;
+  font-weight: 600;
+  line-height: 32rpx;
+  text-align: center;
+  border-radius: 16rpx;
+  box-sizing: border-box;
 }
 
 .menu-text {
   font-size: var(--font-sm);
   color: var(--text-secondary);
 }
-
-/* 空状态 */
-.empty-state {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: var(--spacing-xl) 0;
-  gap: var(--spacing-md);
-}
-
-.empty-icon {
-  font-size: 80rpx;
-}
-
-.empty-text {
-  font-size: var(--font-md);
-  color: var(--text-placeholder);
-}
-

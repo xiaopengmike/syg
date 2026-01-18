@@ -1,42 +1,15 @@
-// pages/index/index.js
+// pages/index/index.js - 登录后首页
 const app = getApp();
 
 Page({
   data: {
-    isLoggedIn: false,
     userInfo: null,
-    greeting: ''
+    greeting: '',
+    pendingCount: 0  // 待审批学生数量
   },
 
   onLoad() {
     this.setGreeting();
-  },
-
-  onShow() {
-    // 等待 app 初始化完成后检查登录状态
-    app.onReady(() => {
-      this.checkLogin();
-    });
-  },
-
-  /**
-   * 检查登录状态
-   */
-  checkLogin() {
-    const isLoggedIn = app.globalData.isLoggedIn;
-    const userInfo = app.globalData.userInfo;
-    
-    this.setData({
-      isLoggedIn,
-      userInfo
-    });
-
-    // 如果未登录，跳转到登录页
-    // if (!isLoggedIn) {
-    //   wx.redirectTo({
-    //     url: '/pages/login/login'
-    //   });
-    // }
   },
 
   /**
@@ -65,50 +38,68 @@ Page({
     this.setData({ greeting });
   },
 
-  /**
-   * 获取角色显示名称
-   */
-  getRoleName(role) {
-    const roleMap = {
-      principal: '校长',
-      teacher: '老师',
-      student: '学生'
-    };
-    return roleMap[role] || '用户';
+  onShow() {
+    // 检查登录状态，未登录则跳转到公开首页
+    app.onReady(() => {
+      this.checkLogin();
+    });
   },
 
   /**
-   * 跳转到登录页
+   * 检查登录状态
    */
-  goToLogin() {
-    wx.navigateTo({
-      url: '/pages/login/login'
-    });
+  checkLogin() {
+    const isLoggedIn = app.globalData.isLoggedIn;
+    const userInfo = app.globalData.userInfo;
+    
+    if (!isLoggedIn) {
+      // 未登录，跳转到宣传首页
+      wx.reLaunch({
+        url: '/pages/promo/index'
+      });
+      return;
+    }
+
+    this.setData({ userInfo });
+
+    // 如果是校长，获取待审批数量
+    if (userInfo && userInfo.role === 'principal') {
+      this.loadPendingCount();
+    }
+  },
+
+  /**
+   * 获取待审批学生数量
+   */
+  async loadPendingCount() {
+    try {
+      const userInfo = app.globalData.userInfo;
+      const currentUserId = userInfo?._id || userInfo?.userId;
+
+      const result = await wx.cloud.callFunction({
+        name: 'user',
+        data: {
+          action: 'pending',
+          currentUserId
+        }
+      });
+
+      if (result.result && result.result.success) {
+        this.setData({
+          pendingCount: result.result.data.totalCount || 0
+        });
+      }
+    } catch (error) {
+      console.error('获取待审批数量失败:', error);
+    }
   },
 
   /**
    * 跳转到课程表
    */
   goToSchedule() {
-    if (!this.data.isLoggedIn) {
-      wx.showToast({
-        title: '请登录后使用',
-        icon: 'none'
-      });
-      return;
-    }
     wx.navigateTo({
       url: '/pages/schedule/index/index'
-    });
-  },
-
-  /**
-   * 跳转到冲突检测（功能暂未实现）
-   */
-  goToConflict() {
-    wx.showToast({
-      title: '功能开发中',
-      icon: 'none'
     });
   },
 
@@ -131,12 +122,20 @@ Page({
   },
 
   /**
-   * 跳转到个人中心（功能暂未实现）
+   * 跳转到注册审批
    */
-  goToProfile() {
-    wx.showToast({
-      title: '功能开发中',
-      icon: 'none'
+  goToApproval() {
+    wx.navigateTo({
+      url: '/pages/approval/list/list'
+    });
+  },
+
+  /**
+   * 跳转到宣传首页（公开信息）
+   */
+  goToPromo() {
+    wx.navigateTo({
+      url: '/pages/promo/index'
     });
   },
 
@@ -152,10 +151,9 @@ Page({
           // 清除登录信息
           app.clearLoginInfo();
           
-          // 更新页面状态
-          this.setData({
-            isLoggedIn: false,
-            userInfo: null
+          // 跳转到宣传首页
+          wx.reLaunch({
+            url: '/pages/promo/index'
           });
 
           wx.showToast({
@@ -167,4 +165,3 @@ Page({
     });
   }
 });
-

@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/promo/index",
     "pages/index/index",
     "pages/login/login",
     "pages/register/register",
@@ -9,12 +10,15 @@
     "pages/users/detail/detail",
     "pages/schedule/index/index",
     "pages/schedule/create/create",
-    "pages/schedule/detail/detail"
+    "pages/schedule/detail/detail",
+    "pages/approval/list/list",
+    "pages/campus-tour/index",
+    "pages/course-intro/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#4A90D9",
-    "navigationBarTitleText": "排课系统",
+    "navigationBarTitleText": "课程系统",
     "navigationBarTextStyle": "white",
     "backgroundColor": "#F5F6F8"
   },

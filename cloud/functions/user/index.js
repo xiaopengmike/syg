@@ -18,6 +18,8 @@ const detailHandler = require('./detail');
 const inviteHandler = require('./invite');
 const deleteHandler = require('./delete');
 const initHandler = require('./init');
+const approveHandler = require('./approve');
+const pendingHandler = require('./pending');
 
 // 云函数入口函数
 exports.main = async (event, context) => {
@@ -58,6 +60,12 @@ exports.main = async (event, context) => {
       
     case 'init':
       return await initHandler(event, cloud);
+      
+    case 'approve':
+      return await approveHandler(event, cloud);
+      
+    case 'pending':
+      return await pendingHandler(event, cloud);
       
     case 'getInviteInfo':
       return await getInviteInfo(event, db);

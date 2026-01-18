@@ -1,0 +1,174 @@
+/* pages/campus-tour/index.wxss */
+
+.container {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  padding: var(--spacing-md);
+  padding-bottom: calc(var(--spacing-xl) + env(safe-area-inset-bottom));
+}
+
+/* 头部卡片 */
+.header-card {
+  background: linear-gradient(135deg, #FF9F43, #F7971E);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  text-align: center;
+  color: #fff;
+  margin-bottom: var(--spacing-lg);
+}
+
+.campus-icon {
+  font-size: 80rpx;
+  margin-bottom: var(--spacing-sm);
+}
+
+.campus-name {
+  font-size: var(--font-xl);
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+.campus-desc {
+  font-size: var(--font-sm);
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+/* 通用板块样式 */
+.section {
+  background-color: var(--bg-white);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.section-title {
+  font-size: var(--font-md);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+/* 联系信息 */
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-md);
+  background-color: var(--bg-color);
+  border-radius: var(--radius-md);
+}
+
+.contact-icon {
+  font-size: 40rpx;
+  margin-right: var(--spacing-md);
+}
+
+.contact-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+
+.contact-label {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+}
+
+.contact-value {
+  font-size: var(--font-md);
+  color: var(--text-primary);
+}
+
+.contact-arrow {
+  font-size: var(--font-xl);
+  color: var(--text-placeholder);
+}
+
+/* 设施网格 */
+.facilities-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-md);
+}
+
+.facility-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--spacing-md) 0;
+}
+
+.facility-icon {
+  font-size: 48rpx;
+  margin-bottom: var(--spacing-xs);
+}
+
+.facility-name {
+  font-size: var(--font-sm);
+  color: var(--text-primary);
+  font-weight: 500;
+  margin-bottom: 4rpx;
+}
+
+.facility-desc {
+  font-size: var(--font-xs);
+  color: var(--text-secondary);
+}
+
+/* 图片展示 */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-sm);
+}
+
+.gallery-item {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.6));
+  color: #fff;
+  font-size: var(--font-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  text-align: center;
+}
+
+/* 空状态 */
+.empty-tip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-xl);
+  gap: var(--spacing-sm);
+}
+
+.empty-icon {
+  font-size: 60rpx;
+  opacity: 0.5;
+}
+
+.empty-text {
+  font-size: var(--font-sm);
+  color: var(--text-placeholder);
+}

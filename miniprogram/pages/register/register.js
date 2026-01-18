@@ -146,21 +146,36 @@ Page({
       hideLoading();
 
       if (result.success) {
-        // 保存登录信息
-        app.setLoginInfo(result.data, result.data.token);
-
-        wx.showToast({
-          title: '注册成功',
-          icon: 'success',
-          duration: 1500,
-          success: () => {
-            setTimeout(() => {
-              wx.reLaunch({
-                url: '/pages/index/index'
+        // 学生注册需要审批，不自动登录
+        if (result.needsApproval) {
+          wx.showModal({
+            title: '注册成功',
+            content: '您的注册申请已提交，请等待校长审批后再登录。',
+            showCancel: false,
+            confirmText: '我知道了',
+            success: () => {
+              wx.navigateTo({
+                url: '/pages/login/login'
               });
-            }, 1500);
-          }
-        });
+            }
+          });
+        } else {
+          // 老师注册直接登录
+          app.setLoginInfo(result.data, result.data.token);
+
+          wx.showToast({
+            title: '注册成功',
+            icon: 'success',
+            duration: 1500,
+            success: () => {
+              setTimeout(() => {
+                wx.reLaunch({
+                  url: '/pages/index/index'
+                });
+              }, 1500);
+            }
+          });
+        }
       }
     } catch (error) {
       hideLoading();

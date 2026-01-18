@@ -13,9 +13,9 @@ Page({
   onLoad(options) {
     // 等待 app 初始化完成后检查登录状态
     app.onReady(() => {
-      // 如果已登录，直接跳转首页
+      // 如果已登录，直接跳转到登录后首页
       if (app.globalData.isLoggedIn) {
-        wx.switchTab({
+        wx.reLaunch({
           url: '/pages/index/index'
         });
       }

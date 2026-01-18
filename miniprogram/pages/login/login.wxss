@@ -84,7 +84,21 @@
 
 .input-suffix {
   font-size: 36rpx;
-  padding: var(--spacing-xs);
+  padding: 16rpx;
+  min-width: 60rpx;
+  min-height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10rpx;
+  border-radius: 50%;
+  background: transparent;
+  position: relative;
+  z-index: 10;
+}
+
+.input-suffix:active {
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 /* 获取手机号按钮 */

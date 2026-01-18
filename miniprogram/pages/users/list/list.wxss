@@ -159,6 +159,15 @@
   color: #4A90D9;
 }
 
+.user-status.pending_approval {
+  background-color: #FFF0F6;
+  color: #EB2F96;
+}
+
+.user-status.rejected {
+  background-color: #FFF1F0;
+  color: #FF4D4F;
+}
 
 .user-arrow {
   font-size: 36rpx;

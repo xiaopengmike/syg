@@ -11,7 +11,7 @@
 
 ## 目标
 
-创建微信小程序排课系统的基础项目结构，包括小程序端和云开发环境的初始化配置。
+创建微信小程序课程系统的基础项目结构，包括小程序端和云开发环境的初始化配置。
 
 ## 范围
 
@@ -55,7 +55,7 @@ project.config.json        # 项目配置
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#4A90D9",
-    "navigationBarTitleText": "排课系统",
+    "navigationBarTitleText": "课程系统",
     "navigationBarTextStyle": "white"
   },
   "style": "v2",

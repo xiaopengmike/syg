@@ -1,0 +1,59 @@
+<!--pages/approval/list/list.wxml-->
+<view class="container">
+  <!-- 标题区域 -->
+  <view class="header">
+    <text class="title">注册审批</text>
+    <text class="subtitle">共 {{totalCount}} 位学生等待审批</text>
+  </view>
+
+  <!-- 待审批列表 -->
+  <view class="approval-list" wx:if="{{list.length > 0}}">
+    <view class="approval-item" wx:for="{{list}}" wx:key="_id">
+      <view class="student-info">
+        <view class="student-avatar">
+          <text>{{item.name[0] || '?'}}</text>
+        </view>
+        <view class="student-detail">
+          <view class="student-name">{{item.name}}</view>
+          <view class="student-meta">
+            <text class="meta-item">📱 {{item.phone}}</text>
+            <text class="meta-item" wx:if="{{item.className}}">🏫 {{item.className}}</text>
+          </view>
+          <view class="register-time">
+            注册时间：{{item.createdAt}}
+          </view>
+        </view>
+      </view>
+      <view class="action-buttons">
+        <button 
+          class="btn-approve" 
+          bindtap="handleApprove"
+          data-id="{{item._id}}"
+          data-name="{{item.name}}"
+        >
+          批准
+        </button>
+        <button 
+          class="btn-reject" 
+          bindtap="handleReject"
+          data-id="{{item._id}}"
+          data-name="{{item.name}}"
+        >
+          拒绝
+        </button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:elif="{{!isLoading}}">
+    <view class="empty-icon">🎉</view>
+    <text class="empty-text">暂无待审批的学生</text>
+    <text class="empty-tip">所有注册申请已处理完毕</text>
+  </view>
+
+  <!-- 加载中 -->
+  <view class="loading-state" wx:if="{{isLoading}}">
+    <text>加载中...</text>
+  </view>
+</view>

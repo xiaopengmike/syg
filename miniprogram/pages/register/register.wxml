@@ -3,7 +3,7 @@
   <!-- Logo 区域 -->
   <view class="logo-section">
     <view class="logo">📅</view>
-    <text class="app-name">加入排课系统</text>
+    <text class="app-name">加入课程系统</text>
   </view>
 
   <!-- 注册表单 -->
@@ -67,18 +67,6 @@
         placeholder="请输入教授科目" 
         value="{{subject}}"
         bindinput="onSubjectInput"
-      />
-    </view>
-
-    <!-- 班级输入（学生） -->
-    <view class="input-group" wx:if="{{role === 'student'}}">
-      <view class="input-icon">🏫</view>
-      <input 
-        class="input" 
-        type="text" 
-        placeholder="请输入班级（选填）" 
-        value="{{className}}"
-        bindinput="onClassNameInput"
       />
     </view>
 

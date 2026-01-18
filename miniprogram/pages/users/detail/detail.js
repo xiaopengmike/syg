@@ -187,7 +187,7 @@ Page({
             icon: 'none'
           });
           resolve({
-            title: '排课系统',
+            title: '课程系统',
             path: '/pages/index/index'
           });
         });

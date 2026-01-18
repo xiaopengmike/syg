@@ -36,6 +36,8 @@
         <text wx:elif="{{item.bindStatus === 'pending'}}">⏳ 待绑定</text>
         <text wx:elif="{{item.bindStatus === 'bound'}}">✅ 已绑定</text>
         <text wx:elif="{{item.bindStatus === 'registered'}}">🔗 已注册</text>
+        <text wx:elif="{{item.bindStatus === 'pending_approval'}}">🕐 待审批</text>
+        <text wx:elif="{{item.bindStatus === 'rejected'}}">❌ 已拒绝</text>
       </view>
       <view class="user-arrow">›</view>
     </view>

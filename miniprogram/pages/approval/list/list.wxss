@@ -1,0 +1,166 @@
+/* pages/approval/list/list.wxss */
+
+.container {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  padding: var(--spacing-md);
+}
+
+/* 标题区域 */
+.header {
+  padding: var(--spacing-lg) 0;
+}
+
+.title {
+  font-size: var(--font-xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: var(--spacing-xs);
+}
+
+.subtitle {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+}
+
+/* 审批列表 */
+.approval-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.approval-item {
+  background-color: var(--bg-white);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.student-info {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.student-avatar {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: var(--font-lg);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.student-detail {
+  flex: 1;
+  min-width: 0;
+}
+
+.student-name {
+  font-size: var(--font-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.student-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xs);
+}
+
+.meta-item {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+}
+
+.register-time {
+  font-size: var(--font-xs);
+  color: var(--text-placeholder);
+}
+
+/* 操作按钮 */
+.action-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  border-top: 1rpx solid var(--border-color);
+}
+
+.btn-approve,
+.btn-reject {
+  flex: 1;
+  height: 72rpx;
+  font-size: var(--font-md);
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+}
+
+.btn-approve {
+  background: linear-gradient(135deg, #52C41A, #389E0D);
+  color: #fff;
+  border: none;
+}
+
+.btn-approve::after {
+  border: none;
+}
+
+.btn-reject {
+  background-color: transparent;
+  color: #FF4D4F;
+  border: 2rpx solid #FF4D4F;
+}
+
+.btn-reject::after {
+  border: none;
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120rpx var(--spacing-lg);
+  gap: var(--spacing-sm);
+}
+
+.empty-icon {
+  font-size: 120rpx;
+  margin-bottom: var(--spacing-md);
+}
+
+.empty-text {
+  font-size: var(--font-lg);
+  color: var(--text-secondary);
+}
+
+.empty-tip {
+  font-size: var(--font-sm);
+  color: var(--text-placeholder);
+}
+
+/* 加载状态 */
+.loading-state {
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-xl);
+  color: var(--text-placeholder);
+  font-size: var(--font-md);
+}

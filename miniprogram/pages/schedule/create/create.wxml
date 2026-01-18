@@ -141,7 +141,13 @@
 <view class="modal-content {{showStudentPicker ? 'show' : ''}}">
   <view class="modal-header">
     <text class="modal-title">选择学生</text>
-    <view class="modal-close" bindtap="closeStudentPicker">✕</view>
+    <view class="modal-header-actions">
+      <view class="add-student-btn" bindtap="goAddStudent">
+        <text class="add-icon">+</text>
+        <text>添加学生</text>
+      </view>
+      <view class="modal-close" bindtap="closeStudentPicker">✕</view>
+    </view>
   </view>
   <view class="modal-body">
     <view class="student-list" wx:if="{{studentList.length > 0}}">
@@ -161,7 +167,9 @@
       </view>
     </view>
     <view class="empty-list" wx:else>
+      <view class="empty-icon">📚</view>
       <text>暂无学生</text>
+      <view class="empty-add-btn" bindtap="goAddStudent">点击添加学生</view>
     </view>
   </view>
   <view class="modal-footer">

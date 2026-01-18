@@ -1,18 +1,14 @@
-<!--pages/index/index.wxml-->
+<!--pages/index/index.wxml - 登录后首页-->
 <view class="container">
-  <!-- 头部欢迎区域 -->
+  <!-- 头部区域 - 简单蓝色 -->
   <view class="header">
     <view class="greeting">{{greeting}}</view>
-    <view class="user-info" wx:if="{{isLoggedIn && userInfo}}">
+    <view class="user-info">
       <view class="user-detail">
         <text class="user-name">{{userInfo.name}}</text>
         <text class="user-role {{userInfo.role}}">{{userInfo.role === 'principal' ? '校长' : (userInfo.role === 'teacher' ? '老师' : '学生')}}</text>
       </view>
       <view class="logout-btn" bindtap="handleLogout">退出</view>
-    </view>
-    <view class="login-tip" wx:else>
-      <text>欢迎使用排课系统</text>
-      <button class="login-btn" bindtap="goToLogin">登录 / 注册</button>
     </view>
   </view>
 
@@ -28,8 +24,6 @@
         </view>
         <text class="menu-text">课程表</text>
       </view>
-
-
 
       <!-- 我的老师 - 仅校长可见 -->
       <view class="menu-item" wx:if="{{userInfo.role === 'principal'}}" bindtap="goToTeachers">
@@ -47,14 +41,22 @@
         <text class="menu-text">我的学生</text>
       </view>
 
+      <!-- 注册审批 - 仅校长可见 -->
+      <view class="menu-item" wx:if="{{userInfo.role === 'principal'}}" bindtap="goToApproval">
+        <view class="menu-icon approval-icon">
+          <text class="icon">✅</text>
+          <view class="badge" wx:if="{{pendingCount > 0}}">{{pendingCount > 99 ? '99+' : pendingCount}}</view>
+        </view>
+        <text class="menu-text">注册审批</text>
+      </view>
 
+      <!-- 返回欢迎页面 - 返回宣传首页查看校区参观、课程介绍 -->
+      <view class="menu-item" bindtap="goToPromo">
+        <view class="menu-icon public-icon">
+          <text class="icon">🌐</text>
+        </view>
+        <text class="menu-text">返回欢迎页面</text>
+      </view>
     </view>
   </view>
-
-  <!-- 未登录提示 -->
-  <view class="empty-state" wx:if="{{!isLoggedIn}}">
-    <view class="empty-icon">🔐</view>
-    <text class="empty-text">请先登录以使用完整功能</text>
-  </view>
 </view>
-

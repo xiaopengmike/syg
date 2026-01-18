@@ -1,0 +1,42 @@
+<!--pages/course-intro/index.wxml-->
+<view class="container">
+  <!-- 头部介绍 -->
+  <view class="header-card">
+    <view class="header-icon">📖</view>
+    <view class="header-title">课程体系</view>
+    <view class="header-desc">专业师资团队，科学课程设计，助力学员全面发展</view>
+  </view>
+
+  <!-- 课程分类列表 -->
+  <view class="course-list">
+    <view class="category-item" wx:for="{{courseCategories}}" wx:key="id">
+      <!-- 分类标题 -->
+      <view class="category-header" bindtap="toggleCategory" data-id="{{item.id}}">
+        <view class="category-icon">{{item.icon}}</view>
+        <view class="category-name">{{item.name}}</view>
+        <view class="category-count">{{item.courses.length}}门课程</view>
+        <view class="category-arrow {{expandedCategory === item.id ? 'expanded' : ''}}">›</view>
+      </view>
+
+      <!-- 课程列表 -->
+      <view class="courses-wrapper {{expandedCategory === item.id ? 'show' : ''}}">
+        <view class="course-item" wx:for="{{item.courses}}" wx:for-item="course" wx:key="name"
+              bindtap="viewCourseDetail" data-name="{{course.name}}">
+          <view class="course-info">
+            <view class="course-name">{{course.name}}</view>
+            <view class="course-desc">{{course.desc}}</view>
+            <view class="course-tags">
+              <view class="tag" wx:for="{{course.tags}}" wx:for-item="tag" wx:key="*this">{{tag}}</view>
+            </view>
+          </view>
+          <view class="course-arrow">›</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部咨询按钮 -->
+  <view class="footer-action">
+    <button class="consult-btn" bindtap="consultCourse">咨询报名</button>
+  </view>
+</view>

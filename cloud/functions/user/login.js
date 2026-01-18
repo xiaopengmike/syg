@@ -71,6 +71,23 @@ module.exports = async function login(event, db) {
         message: '密码错误'
       };
     }
+
+    // 检查用户状态（待审批、已拒绝的用户不能登录）
+    if (user.bindStatus === 'pending_approval') {
+      return {
+        success: false,
+        code: 'PENDING_APPROVAL',
+        message: '您的注册申请正在等待校长审批'
+      };
+    }
+
+    if (user.bindStatus === 'rejected') {
+      return {
+        success: false,
+        code: 'REJECTED',
+        message: '您的注册申请已被拒绝'
+      };
+    }
     
     // 生成 token
     const token = generateToken(user._id);
