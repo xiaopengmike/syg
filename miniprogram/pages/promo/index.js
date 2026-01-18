@@ -1,11 +1,12 @@
-// pages/promo/index.js - 宣传首页
+// pages/promo/index.js - 宣传首页（美化版）
 const app = getApp();
 
 Page({
   data: {
     isLoggedIn: false,
     userInfo: null,
-    greeting: ''
+    greeting: '',
+    animationReady: false
   },
 
   onLoad() {
@@ -17,6 +18,23 @@ Page({
     app.onReady(() => {
       this.checkLogin();
     });
+  },
+
+  onReady() {
+    // 页面渲染完成后启动动画
+    this.startAnimation();
+  },
+
+  /**
+   * 启动入场动画
+   */
+  startAnimation() {
+    // 短暂延迟后启动动画，确保页面已渲染
+    setTimeout(() => {
+      this.setData({
+        animationReady: true
+      });
+    }, 100);
   },
 
   /**

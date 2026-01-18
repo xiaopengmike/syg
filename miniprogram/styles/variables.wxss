@@ -1,51 +1,61 @@
 /**
  * 全局样式变量
  * 微信小程序课程系统
+ * 主题：清新天蓝 - 柔和明亮配色
  */
 
 page {
-  /* 主题色 */
-  --primary-color: #4A90D9;
-  --primary-light: #6BA3E0;
-  --primary-dark: #3A7BC8;
+  /* ===== 主色系 - 清新天蓝 ===== */
+  --primary-color: #60A5FA;
+  --primary-light: #93C5FD;
+  --primary-dark: #3B82F6;
+  --primary-lighter: #BFDBFE;
+  --primary-lightest: #DBEAFE;
   
-  /* 功能色 */
-  --success-color: #52C41A;
-  --warning-color: #FAAD14;
-  --error-color: #FF4D4F;
-  --info-color: #1890FF;
+  /* ===== 功能色 ===== */
+  --success-color: #10B981;
+  --warning-color: #F59E0B;
+  --error-color: #EF4444;
+  --info-color: #60A5FA;
   
-  /* 文字颜色 */
-  --text-primary: #333333;
-  --text-secondary: #666666;
-  --text-placeholder: #999999;
-  --text-disabled: #CCCCCC;
+  /* ===== 文字颜色 ===== */
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --text-placeholder: #94A3B8;
+  --text-disabled: #CBD5E1;
   --text-white: #FFFFFF;
   
-  /* 背景颜色 */
+  /* ===== 背景颜色 ===== */
   --bg-color: #F5F6F8;
   --bg-white: #FFFFFF;
-  --bg-gray: #F0F0F0;
+  --bg-gray: #F1F5F9;
+  --bg-light-blue: #DBEAFE;
   
-  /* 边框颜色 */
-  --border-color: #E8E8E8;
-  --border-light: #F0F0F0;
+  /* ===== 边框颜色 ===== */
+  --border-color: #E2E8F0;
+  --border-light: #F1F5F9;
   
-  /* 间距 */
+  /* ===== 渐变 ===== */
+  --gradient-primary: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
+  --gradient-bg: linear-gradient(165deg, #3B82F6 0%, #60A5FA 20%, #93C5FD 45%, #DBEAFE 70%, #FFFFFF 90%);
+  --gradient-card: linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(219,234,254,0.8) 50%, rgba(191,219,254,0.6) 100%);
+  
+  /* ===== 间距 ===== */
   --spacing-xs: 8rpx;
   --spacing-sm: 16rpx;
   --spacing-md: 24rpx;
   --spacing-lg: 32rpx;
   --spacing-xl: 48rpx;
   
-  /* 圆角 */
+  /* ===== 圆角 ===== */
   --radius-sm: 8rpx;
   --radius-md: 12rpx;
   --radius-lg: 16rpx;
   --radius-xl: 24rpx;
+  --radius-xxl: 32rpx;
   --radius-round: 9999rpx;
   
-  /* 字体大小 */
+  /* ===== 字体大小 ===== */
   --font-xs: 22rpx;
   --font-sm: 24rpx;
   --font-md: 28rpx;
@@ -53,25 +63,21 @@ page {
   --font-xl: 36rpx;
   --font-xxl: 44rpx;
   
-  /* 阴影 */
-  --shadow-sm: 0 2rpx 8rpx rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4rpx 16rpx rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 8rpx 24rpx rgba(0, 0, 0, 0.12);
+  /* ===== 阴影 ===== */
+  --shadow-sm: 0 2rpx 8rpx rgba(96, 165, 250, 0.08);
+  --shadow-md: 0 4rpx 16rpx rgba(96, 165, 250, 0.12);
+  --shadow-lg: 0 8rpx 32rpx rgba(96, 165, 250, 0.18);
+  --shadow-button: 0 8rpx 24rpx rgba(96, 165, 250, 0.45);
   
-  /* 角色颜色 */
-  --role-principal: #9B59B6;
-  --role-teacher: #3498DB;
-  --role-student: #2ECC71;
+  /* ===== 角色颜色 ===== */
+  --role-principal: #8B5CF6;
+  --role-teacher: #60A5FA;
+  --role-student: #10B981;
   
-  /* 课程卡片颜色 */
-  --schedule-blue: #4A90D9;
-  --schedule-green: #52C41A;
-  --schedule-orange: #FA8C16;
-  --schedule-purple: #722ED1;
-  --schedule-cyan: #13C2C2;
+  /* ===== 课程卡片颜色 ===== */
+  --schedule-blue: #60A5FA;
+  --schedule-green: #10B981;
+  --schedule-orange: #F59E0B;
+  --schedule-purple: #8B5CF6;
+  --schedule-cyan: #06B6D4;
 }
-
-
-
-
-

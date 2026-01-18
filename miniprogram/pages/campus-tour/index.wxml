@@ -1,4 +1,5 @@
 <!--pages/campus-tour/index.wxml-->
+<custom-navbar title="校区参观"></custom-navbar>
 <view class="container">
   <!-- 校区头部信息 -->
   <view class="header-card">

@@ -1,4 +1,5 @@
 <!--pages/schedule/index/index.wxml-->
+<custom-navbar title="课程表"></custom-navbar>
 <view class="container">
   <!-- 筛选栏 - 仅校长可见 -->
   <view class="filter-bar" wx:if="{{isPrincipal}}">

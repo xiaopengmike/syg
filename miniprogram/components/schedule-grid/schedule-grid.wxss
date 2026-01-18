@@ -48,7 +48,7 @@
 
 .today-btn {
   font-size: 22rpx;
-  color: #4a90d9;
+  color: #60A5FA;
   margin-top: 4rpx;
 }
 
@@ -75,12 +75,12 @@
 }
 
 .day-header.today {
-  background: #e8f4fd;
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.15) 0%, rgba(147, 197, 253, 0.08) 100%);
 }
 
 .day-header.today .day-name,
 .day-header.today .day-date {
-  color: #4a90d9;
+  color: #3B82F6;
 }
 
 .day-name {
@@ -164,7 +164,7 @@
 }
 
 .cell-touch:active {
-  background: rgba(74, 144, 217, 0.1);
+  background: rgba(96, 165, 250, 0.15);
 }
 
 

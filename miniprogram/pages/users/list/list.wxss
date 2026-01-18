@@ -25,7 +25,7 @@
 }
 
 .tab-item.active {
-  color: #4A90D9;
+  color: #60A5FA;
   font-weight: 600;
 }
 
@@ -37,20 +37,20 @@
   transform: translateX(-50%);
   width: 60rpx;
   height: 6rpx;
-  background-color: #4A90D9;
+  background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
   border-radius: 3rpx;
 }
 
 .tab-count {
   font-size: 24rpx;
-  background-color: #eee;
+  background-color: #F1F5F9;
   padding: 4rpx 12rpx;
   border-radius: 20rpx;
 }
 
 .tab-item.active .tab-count {
-  background-color: #E8F4FD;
-  color: #4A90D9;
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.18) 0%, rgba(147, 197, 253, 0.12) 100%);
+  color: #3B82F6;
 }
 
 /* 搜索框 */
@@ -103,11 +103,12 @@
   width: 80rpx;
   height: 80rpx;
   border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(96, 165, 250, 0.35);
 }
 
 .user-avatar text {
@@ -155,8 +156,8 @@
 }
 
 .user-status.registered {
-  background-color: #E8F4FD;
-  color: #4A90D9;
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.18) 0%, rgba(147, 197, 253, 0.12) 100%);
+  color: #3B82F6;
 }
 
 .user-status.pending_approval {
@@ -214,16 +215,22 @@
   bottom: 80rpx;
   width: 100rpx;
   height: 100rpx;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8rpx 24rpx rgba(102, 126, 234, 0.4);
+  box-shadow: 0 8rpx 24rpx rgba(96, 165, 250, 0.45);
+  transition: all 0.3s ease;
+}
+
+.add-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 4rpx 16rpx rgba(96, 165, 250, 0.55);
 }
 
 .add-btn text {
-  color: #fff;
+  color: #FFFFFF;
   font-size: 56rpx;
   font-weight: 300;
 }

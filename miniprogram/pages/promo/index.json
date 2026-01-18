@@ -1,4 +1,6 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "课程系统"
+  "navigationBarTitleText": "课程系统",
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "white"
 }

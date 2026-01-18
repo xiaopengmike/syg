@@ -28,11 +28,12 @@
   width: 120rpx;
   height: 120rpx;
   border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20rpx;
+  box-shadow: 0 8rpx 24rpx rgba(96, 165, 250, 0.35);
 }
 
 .user-avatar text {
@@ -60,8 +61,8 @@
 }
 
 .user-role-tag.student {
-  background-color: #E8F4FD;
-  color: #4A90D9;
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.18) 0%, rgba(147, 197, 253, 0.12) 100%);
+  color: #3B82F6;
 }
 
 /* 信息卡片 */
@@ -116,8 +117,8 @@
 }
 
 .status-tag.registered {
-  background-color: #E8F4FD;
-  color: #4A90D9;
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.18) 0%, rgba(147, 197, 253, 0.12) 100%);
+  color: #3B82F6;
 }
 
 /* 操作按钮 */
@@ -145,8 +146,9 @@
 }
 
 .action-btn.invite {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #fff;
+  background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
+  color: #FFFFFF;
+  box-shadow: 0 6rpx 20rpx rgba(96, 165, 250, 0.4);
 }
 
 .action-btn.edit {
@@ -173,13 +175,13 @@
 }
 
 .invite-header {
-  background-color: #E8F4FD;
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.12) 0%, rgba(147, 197, 253, 0.08) 100%);
   padding: 20rpx 24rpx;
 }
 
 .invite-title {
   font-size: 28rpx;
-  color: #4A90D9;
+  color: #3B82F6;
   font-weight: 500;
 }
 
@@ -201,7 +203,7 @@
 
 .invite-code {
   font-size: 32rpx;
-  color: #4A90D9;
+  color: #3B82F6;
   font-weight: 600;
   letter-spacing: 4rpx;
 }

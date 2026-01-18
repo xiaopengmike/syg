@@ -1,4 +1,5 @@
 <!--pages/course-intro/index.wxml-->
+<custom-navbar title="课程介绍"></custom-navbar>
 <view class="container">
   <!-- 头部介绍 -->
   <view class="header-card">

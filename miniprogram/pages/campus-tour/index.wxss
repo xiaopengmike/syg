@@ -9,12 +9,13 @@
 
 /* 头部卡片 */
 .header-card {
-  background: linear-gradient(135deg, #FF9F43, #F7971E);
+  background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
   border-radius: var(--radius-lg);
   padding: var(--spacing-xl);
   text-align: center;
-  color: #fff;
+  color: #FFFFFF;
   margin-bottom: var(--spacing-lg);
+  box-shadow: 0 8rpx 32rpx rgba(96, 165, 250, 0.3);
 }
 
 .campus-icon {

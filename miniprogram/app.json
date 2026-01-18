@@ -17,10 +17,13 @@
   ],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#4A90D9",
+    "navigationBarBackgroundColor": "#3B82F6",
     "navigationBarTitleText": "课程系统",
     "navigationBarTextStyle": "white",
     "backgroundColor": "#F5F6F8"
+  },
+  "usingComponents": {
+    "custom-navbar": "/components/custom-navbar/custom-navbar"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",

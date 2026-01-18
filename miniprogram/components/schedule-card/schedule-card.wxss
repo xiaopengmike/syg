@@ -67,25 +67,25 @@
   white-space: nowrap;
 }
 
-/* 颜色主题 */
+/* 颜色主题 - 清新天蓝系 */
 .color-0 {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
 }
 
 .color-1 {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
 }
 
 .color-2 {
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  background: linear-gradient(135deg, #93C5FD 0%, #06B6D4 100%);
 }
 
 .color-3 {
-  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
 }
 
 .color-4 {
-  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
 }
 
 .color-5 {

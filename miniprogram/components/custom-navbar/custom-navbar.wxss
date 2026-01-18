@@ -1,0 +1,98 @@
+/* components/custom-navbar/custom-navbar.wxss */
+
+.navbar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+/* 渐变背景 - 与欢迎首页一致 */
+.navbar-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    180deg,
+    #3B82F6 0%,
+    #60A5FA 50%,
+    #93C5FD 100%
+  );
+}
+
+/* 状态栏 */
+.status-bar {
+  position: relative;
+  z-index: 1;
+}
+
+/* 导航栏内容 */
+.navbar-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  padding: 0 16rpx;
+}
+
+/* 左侧区域 */
+.navbar-left {
+  width: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* 返回按钮 */
+.back-btn {
+  width: 64rpx;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10rpx);
+}
+
+.back-btn:active {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.back-icon {
+  font-size: 48rpx;
+  font-weight: 300;
+  color: #FFFFFF;
+  line-height: 1;
+  margin-top: -4rpx;
+}
+
+/* 标题区域 */
+.navbar-title {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-text {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+  text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 右侧区域 */
+.navbar-right {
+  width: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* 占位元素 */
+.navbar-placeholder {
+  width: 100%;
+}

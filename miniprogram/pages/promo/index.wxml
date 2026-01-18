@@ -1,64 +1,96 @@
-<!--pages/promo/index.wxml - 宣传首页-->
-<view class="container">
-  <!-- 头部区域 - 未登录：登录按钮 -->
-  <view class="header" wx:if="{{!isLoggedIn}}">
-    <view class="greeting">{{greeting}}</view>
-    <view class="login-tip">
-      <text>欢迎使用课程系统</text>
-      <button class="login-btn" bindtap="goToLogin">登录 / 注册</button>
-    </view>
+<!--pages/promo/index.wxml - 宣传首页（美化版）-->
+<view class="page-container {{animationReady ? 'animate-ready' : ''}}">
+  <!-- 背景装饰层 -->
+  <view class="bg-decoration">
+    <view class="bg-gradient"></view>
+    <view class="bg-circle circle-1"></view>
+    <view class="bg-circle circle-2"></view>
+    <view class="bg-circle circle-3"></view>
+    <view class="bg-wave"></view>
   </view>
 
-  <!-- 头部区域 - 已登录：Banner图片 -->
-  <view class="banner-wrapper" wx:else>
-    <image class="banner-image" src="/images/banner.jpg" mode="widthFix"></image>
-    <view class="banner-overlay">
-      <view class="banner-user">
-        <text class="user-name">{{userInfo.name}}</text>
-        <text class="user-role {{userInfo.role}}">{{userInfo.role === 'principal' ? '校长' : (userInfo.role === 'teacher' ? '老师' : '学生')}}</text>
+  <!-- 主内容区域 -->
+  <view class="content-wrapper">
+    <!-- Hero 区域 -->
+    <view class="hero-section">
+      <!-- Logo 图片 -->
+      <view class="logo-container anim-item anim-delay-1">
+        <image class="logo-image" src="/images/logo.jpg" mode="aspectFill"></image>
+        <view class="logo-glow"></view>
       </view>
     </view>
-  </view>
 
-  <!-- 功能入口 -->
-  <view class="menu-section">
-    <view class="section-title">功能菜单</view>
-    
-    <view class="menu-grid">
-      <!-- 课程系统 - 进入系统首页 -->
-      <view class="menu-item" bindtap="goToSystem">
-        <view class="menu-icon system-icon">
-          <text class="icon">🏠</text>
-        </view>
-        <text class="menu-text">课程系统</text>
+    <!-- Banner 区域 -->
+    <view class="banner-section anim-item anim-delay-4">
+      <view class="banner-card">
+        <image class="banner-image" src="/images/banner.jpg" mode="aspectFill"></image>
+        <view class="banner-overlay"></view>
       </view>
-
-      <!-- 校区参观 -->
-      <view class="menu-item" bindtap="goToCampusTour">
-        <view class="menu-icon tour-icon">
-          <text class="icon">🏫</text>
-        </view>
-        <text class="menu-text">校区参观</text>
-      </view>
-
-      <!-- 课程介绍 -->
-      <view class="menu-item" bindtap="goToCourseIntro">
-        <view class="menu-icon intro-icon">
-          <text class="icon">📖</text>
-        </view>
-        <text class="menu-text">课程介绍</text>
+      
+      <!-- 未登录时显示登录按钮 -->
+      <view class="login-section" wx:if="{{!isLoggedIn}}">
+        <view class="greeting-text">{{greeting}}，欢迎使用</view>
+        <button class="login-btn" bindtap="goToLogin">
+          <text class="btn-text">登录 / 注册</text>
+          <text class="btn-arrow">→</text>
+        </button>
       </view>
     </view>
-  </view>
 
-  <!-- 未登录提示 -->
-  <view class="empty-state" wx:if="{{!isLoggedIn}}">
-    <view class="empty-icon">🔐</view>
-    <text class="empty-text">请先登录以使用完整功能</text>
-  </view>
+    <!-- 功能入口区域 -->
+    <view class="features-section">
+      <view class="section-header anim-item anim-delay-5">
+        <view class="section-line"></view>
+        <text class="section-title">功能入口</text>
+        <view class="section-line"></view>
+      </view>
 
-  <!-- Logo -->
-  <view class="logo-section">
-    <image class="logo-image" src="/images/logo.jpg" mode="widthFix"></image>
+      <view class="features-grid">
+        <!-- 课程系统 -->
+        <view class="feature-card anim-item anim-delay-6" bindtap="goToSystem">
+          <view class="feature-icon-wrapper icon-system">
+            <text class="feature-icon">🏠</text>
+          </view>
+          <view class="feature-content">
+            <text class="feature-name">课程系统</text>
+            <text class="feature-desc">管理课程与排课</text>
+          </view>
+          <view class="feature-arrow">›</view>
+        </view>
+
+        <!-- 校区参观 -->
+        <view class="feature-card anim-item anim-delay-7" bindtap="goToCampusTour">
+          <view class="feature-icon-wrapper icon-tour">
+            <text class="feature-icon">🏫</text>
+          </view>
+          <view class="feature-content">
+            <text class="feature-name">校区参观</text>
+            <text class="feature-desc">了解校区环境</text>
+          </view>
+          <view class="feature-arrow">›</view>
+        </view>
+
+        <!-- 课程介绍 -->
+        <view class="feature-card anim-item anim-delay-8" bindtap="goToCourseIntro">
+          <view class="feature-icon-wrapper icon-course">
+            <text class="feature-icon">📖</text>
+          </view>
+          <view class="feature-content">
+            <text class="feature-name">课程介绍</text>
+            <text class="feature-desc">浏览精品课程</text>
+          </view>
+          <view class="feature-arrow">›</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 底部品牌区域 -->
+    <view class="footer-section anim-item anim-delay-9">
+      <view class="footer-divider"></view>
+      <view class="footer-brand">
+        <image class="footer-logo" src="/images/logo.jpg" mode="aspectFit"></image>
+        <text class="footer-text">智慧教育 · 高效管理</text>
+      </view>
+    </view>
   </view>
 </view>

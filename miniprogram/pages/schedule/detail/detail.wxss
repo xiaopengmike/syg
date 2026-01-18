@@ -26,8 +26,8 @@
 }
 
 .main-card {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #fff;
+  background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
+  color: #FFFFFF;
 }
 
 .course-header {
@@ -105,14 +105,15 @@
   width: 80rpx;
   height: 80rpx;
   border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: #FFFFFF;
   font-size: 32rpx;
   font-weight: 600;
   margin-right: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(96, 165, 250, 0.35);
 }
 
 .teacher-detail {
@@ -154,14 +155,15 @@
   width: 64rpx;
   height: 64rpx;
   border-radius: 50%;
-  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: #FFFFFF;
   font-size: 26rpx;
   font-weight: 600;
   margin-right: 16rpx;
+  box-shadow: 0 4rpx 12rpx rgba(16, 185, 129, 0.3);
 }
 
 .student-detail {
@@ -234,8 +236,9 @@
 }
 
 .btn-edit {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #fff;
+  background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
+  color: #FFFFFF;
+  box-shadow: 0 6rpx 20rpx rgba(96, 165, 250, 0.4);
 }
 
 .btn-delete {

@@ -1,6 +1,5 @@
 {
   "usingComponents": {},
+  "navigationStyle": "custom",
   "navigationBarTitleText": "创建排课"
 }
-
-

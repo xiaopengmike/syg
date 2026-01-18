@@ -1,4 +1,5 @@
 <!--pages/approval/list/list.wxml-->
+<custom-navbar title="注册审批"></custom-navbar>
 <view class="container">
   <!-- 标题区域 -->
   <view class="header">

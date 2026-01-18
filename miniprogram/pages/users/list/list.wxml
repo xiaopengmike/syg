@@ -1,4 +1,5 @@
 <!--pages/users/list/list.wxml-->
+<custom-navbar title="{{userType === 'teacher' ? '我的老师' : '我的学生'}}"></custom-navbar>
 <view class="container">
   <!-- 搜索框 -->
   <view class="search-bar">

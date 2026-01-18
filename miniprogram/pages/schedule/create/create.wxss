@@ -120,8 +120,8 @@
 }
 
 .student-tag {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #fff;
+  background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
+  color: #FFFFFF;
   padding: 8rpx 20rpx;
   border-radius: 20rpx;
   font-size: 24rpx;
@@ -148,14 +148,20 @@
 .btn-submit {
   width: 100%;
   height: 88rpx;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #fff;
+  background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
+  color: #FFFFFF;
   font-size: 32rpx;
-  font-weight: 500;
+  font-weight: 600;
   border-radius: 44rpx;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 8rpx 24rpx rgba(96, 165, 250, 0.45);
+}
+
+.btn-submit:active {
+  transform: scale(0.98);
+  box-shadow: 0 4rpx 16rpx rgba(96, 165, 250, 0.55);
 }
 
 .btn-submit.disabled {
@@ -217,8 +223,8 @@
   align-items: center;
   gap: 6rpx;
   padding: 10rpx 20rpx;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #fff;
+  background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
+  color: #FFFFFF;
   font-size: 24rpx;
   border-radius: 30rpx;
 }
@@ -274,8 +280,8 @@
 }
 
 .student-item.selected .student-checkbox {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-color: #667eea;
+  background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
+  border-color: #60A5FA;
 }
 
 .student-info {
@@ -313,8 +319,8 @@
 .empty-add-btn {
   margin-top: 16rpx;
   padding: 16rpx 40rpx;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #fff;
+  background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
+  color: #FFFFFF;
   font-size: 26rpx;
   border-radius: 30rpx;
 }
@@ -328,13 +334,14 @@
 .btn-confirm {
   width: 100%;
   height: 88rpx;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #fff;
+  background: linear-gradient(135deg, #60A5FA 0%, #3B82F6 100%);
+  color: #FFFFFF;
   font-size: 32rpx;
   border-radius: 44rpx;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 6rpx 20rpx rgba(96, 165, 250, 0.4);
 }
 
 

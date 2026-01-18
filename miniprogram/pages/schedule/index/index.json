@@ -2,7 +2,6 @@
   "usingComponents": {
     "schedule-grid": "/components/schedule-grid/schedule-grid"
   },
+  "navigationStyle": "custom",
   "navigationBarTitleText": "课程表"
 }
-
-

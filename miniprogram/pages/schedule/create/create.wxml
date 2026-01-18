@@ -1,4 +1,5 @@
 <!--pages/schedule/create/create.wxml-->
+<custom-navbar title="{{isEdit ? '编辑排课' : '创建排课'}}"></custom-navbar>
 <view class="container">
   <view class="form-card">
     <!-- 课程名称 -->
